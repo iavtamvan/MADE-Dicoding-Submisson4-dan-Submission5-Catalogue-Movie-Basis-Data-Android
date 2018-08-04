@@ -64,7 +64,6 @@ public class DetailActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(tittle);
 
         id = Integer.parseInt(intent.getStringExtra(Config.BUNDLE_ID));
-        Toast.makeText(this, "Id Ku ? " + id , Toast.LENGTH_SHORT).show();
         overview = intent.getStringExtra(Config.BUNDLE_OVERVIEW);
         overview_language = intent.getStringExtra(Config.BUNDLE_OVERVIEW_LANGUAGE);
         release = intent.getStringExtra(Config.BUNDLE_RELEASE_DATE);
@@ -130,9 +129,6 @@ public class DetailActivity extends AppCompatActivity {
         contentValues.put(Config.MoviesEntry.FIELD_POPULARITY , popularity);
         contentValues.put(Config.MoviesEntry.FIELD_BACKDROPH_PATH , backdrophImage);
         Uri uri = getContentResolver().insert(Config.MoviesEntry.CONTENT_URI,contentValues);
-        Toast.makeText(this, "Uri " + uri, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Uri " + uri, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Uri " + uri, Toast.LENGTH_SHORT).show();
         Log.d("uri", "saveDataFavorite: "+ uri);
     }
 
