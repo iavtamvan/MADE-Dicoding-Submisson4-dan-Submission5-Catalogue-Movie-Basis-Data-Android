@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         app:cardElevation="8dp"
         app:cardCornerRadius="8dp"
-        android:id="@+id/cv_klik_detail">
+        android:id="@+id/cv_klik_detail"
+        android:layout_margin="4dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

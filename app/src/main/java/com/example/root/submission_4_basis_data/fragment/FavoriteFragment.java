@@ -52,7 +52,13 @@ public class FavoriteFragment extends Fragment implements LoaderManager.LoaderCa
         initView(view);
         FavoriteModels = new ArrayList<>();
         initAdapter(FavoriteModels);
+        LinearLayoutManager layoutManager  = new LinearLayoutManager(getActivity());
+        layoutManager.setReverseLayout(true);
+        rv.setLayoutManager(layoutManager);
+
+
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 
     }
 
