@@ -101,18 +101,14 @@ public class DetailActivity extends AppCompatActivity {
                 } else {
                     edit.putBoolean("FAVORITE"+tittle,false);
                     edit.commit();
-//                    btnFavorit.setEnabled(false);
-//                    hapusDataFavorite();
+                    btnFavorit.setEnabled(false);
                 }
             }
         });
 
     }
 
-    private void hapusDataFavorite() {
-        getContentResolver().delete(Config.MoviesEntry.CONTENT_URI.buildUpon().appendPath(String.valueOf(id)).build(),
-                null, null);
-    }
+
 
     private void saveDataFavorite() {
         ContentValues contentValues  = new ContentValues();
