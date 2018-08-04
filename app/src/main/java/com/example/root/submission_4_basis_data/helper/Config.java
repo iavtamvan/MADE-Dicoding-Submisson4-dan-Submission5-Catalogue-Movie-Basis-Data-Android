@@ -13,16 +13,6 @@ public final class Config {
 
         public static final String DATABASE_TABLE = "favorite";
         public static final String CREATE_TABLE = "create table favorite(id integer primary key, tittle text null, tgl text null, vote_average text null, vote_count text null, original_language text null, overview text null, status_favorite text null);";
-
-        //                    BUNDLE_POSTER_IMAGE belum
-//                            BUNDLE_TITTLE
-//                    BUNDLE_OVERVIEW
-//                            BUNDLE_RELEASE_DATE belum
-//                    BUNDLE_VOTE_COUNT
-//                            BUNDLE_VOTE_AVERAGE
-//                    BUNDLE_POPULARITY belum
-//                            BUNDLE_ORIGINAL_LANGUAGE
-//                    BUNDLE_BACKDROPH_IMAGE belum
         public static final String FIELD_ID = "id";
         public static final String FIELD_ID_ = "_id";
         public static final String FIELD_TITTLE = "tittle";
@@ -38,11 +28,8 @@ public final class Config {
         public static final String FIELD_BACKDROPH_PATH = "backdroph_path";
     }
 
-
-
     public static final String ERROR_NETWORK = "Periksai koneksi anda";
     public static final String ERROR_LIST = "Response Skiped";
-
 
     public static final String BUNDLE_ID = "bundle_id";
     public static final String BUNDLE_POSTER_IMAGE = "bundle_image";
@@ -55,13 +42,6 @@ public final class Config {
     public static final String BUNDLE_VOTE_AVERAGE = "bundle_vote_average";
     public static final String BUNDLE_POPULARITY = "bundle_popularity";
     public static final String BUNDLE_ORIGINAL_LANGUAGE = "bundle_language";
-
-    public static final String DATABASE_NAME = "movie_pop.db";
-    public static final int DATABASE_VERSION = 1;
-
-
-
-    public static final String TABLE_NAME_PROVIDER = "movie_provider";
 
 
 }

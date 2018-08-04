@@ -107,18 +107,6 @@ public class DetailActivity extends AppCompatActivity {
                 }
             }
         });
-//        favorite.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SQLiteDatabase sqLiteDatabase  =  favoriteDataHelper.getWritableDatabase();
-//                String insert_favorite = "INSERT INTO favorite(" + Config.FIELD_TITTLE + ", " + Config.FIELD_TGL + ", " + Config.FIELD_VOTE_AVERAGE + ", " +
-//                        Config.FIELD_VOTE_COUNT + ", " + Config.FIELD_ORIGINAL_LANGUAGE + ", " + Config.FIELD_OVERVIEW + ", " + Config.FIELD_STATUS_FAVORITE + ") " +
-//                        "VALUES ('" + tittle + "', '" + release + "', '" + voteAverage + "', '" + voteCount + "', '" + language + "', '" + overview + "', 'favorite');";
-//                sqLiteDatabase.execSQL(insert_favorite);
-//                Toast.makeText(DetailActivity.this, "Sukses Favorite", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
 
     }
 

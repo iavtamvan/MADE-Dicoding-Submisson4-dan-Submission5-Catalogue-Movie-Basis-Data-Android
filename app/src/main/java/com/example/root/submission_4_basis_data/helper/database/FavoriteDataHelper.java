@@ -14,12 +14,10 @@ public class FavoriteDataHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 24;
     public FavoriteDataHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // TODO Auto-generated method stub
         String CREATE_TABLE = "create table favorite(_id INTEGER primary key AUTOINCREMENT, id INTEGER not null, tittle text, tgl text null, vote_average text null, vote_count text null, original_language text null, overview text null, status_favorite text null);";
         Log.d("Data", "onCreate: " + CREATE_TABLE);
         String CREATE_TABLE_FAVORITE = "CREATE TABLE favorite (" +
@@ -36,19 +34,10 @@ public class FavoriteDataHelper extends SQLiteOpenHelper {
                 Config.MoviesEntry.FIELD_RELEASE_DATE + " TEXT NOT NULL, " +
                 Config.MoviesEntry.FIELD_POPULARITY + " TEXT NOT NULL, " +
                 Config.MoviesEntry.FIELD_BACKDROPH_PATH + " TEXT NOT NULL);";
-
-
         db.execSQL(CREATE_TABLE_FAVORITE);
-//        String insert = "INSERT INTO favorite(" + Config.FIELD_ID + ", " + Config.FIELD_TITTLE + ", " + Config.FIELD_TGL + ", " + Config.FIELD_VOTE_AVERAGE + ", "+
-//                Config.FIELD_VOTE_COUNT + ", " + Config.FIELD_ORIGINAL_LANGUAGE + ", " + Config.FIELD_OVERVIEW + ", " + Config.FIELD_STATUS_FAVORITE + ") " +
-//                "VALUES ('2', 'MANUSIA', '28-08-2018', '7.1', '200', 'En', 'manusia ini setengah salmon', 'faforite'), ('3', 'MANUSIA', '28-08-2018', '7.1', '200', 'En', 'manusia ini setengah salmon', 'faforite');";
-//        db.execSQL(insert);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-
-//        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.TABLE_NOTE);
-//        onCreate(db);
     }
 }

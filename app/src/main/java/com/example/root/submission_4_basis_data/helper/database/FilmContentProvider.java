@@ -14,7 +14,7 @@ import android.support.annotation.Nullable;
 import com.example.root.submission_4_basis_data.helper.Config;
 
 /**
- * Created by root on 19/08/17.
+ * Created by iav_root on 19/08/17.
  */
 
 public class FilmContentProvider extends ContentProvider {
@@ -117,8 +117,6 @@ public class FilmContentProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
-
-        /* If we actually deleted any rows, notify that a change has occurred to this URI */
         if (numRowsDeleted != 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }

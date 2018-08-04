@@ -22,27 +22,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         dbcenter = new FavoriteDataHelper(this);
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SQLiteDatabase sqLiteDatabase = dbcenter.getWritableDatabase();
-//                String insert = "INSERT INTO favorite(" + Config.FIELD_ID + ", " + Config.FIELD_TITTLE + ", " + Config.FIELD_TGL + ", " + Config.FIELD_VOTE_AVERAGE + ", " +
-//                        Config.FIELD_VOTE_COUNT + ", " + Config.FIELD_ORIGINAL_LANGUAGE + ", " + Config.FIELD_OVERVIEW + ", " + Config.FIELD_STATUS_FAVORITE + ") " +
-//                        "VALUES ('4', 'MANUSIA', '28-08-2018', '7.1', '200', 'En', 'manusia ini setengah salmon', 'faforite'), ('5', 'MANUSIA', '28-08-2018', '7.1', '200', 'En', 'manusia ini setengah salmon', 'faforite');";
-//
-//                sqLiteDatabase.execSQL(insert);
-//            }
-//        });
-//
-//        btnelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SQLiteDatabase sqLiteDatabase  = dbcenter.getWritableDatabase();
-//                String delete = "DELETE FROM favorite;";
-//                sqLiteDatabase.execSQL(delete);
-//            }
-//        });
-
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
                 .add(R.string.string_popular_movie, PopularMovieFragment.class)
