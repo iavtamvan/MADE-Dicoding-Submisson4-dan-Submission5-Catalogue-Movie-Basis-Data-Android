@@ -25,7 +25,8 @@
         <provider
             android:authorities="com.example.root.submission_4_basis_data"
             android:name=".helper.database.FilmContentProvider"
-            android:exported="false"/>
+            android:exported="true"
+            android:syncable="true"/>
     </application>
 
 </manifest>
