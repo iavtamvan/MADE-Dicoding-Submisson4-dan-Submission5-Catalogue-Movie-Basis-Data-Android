@@ -54,7 +54,6 @@ public class DetailActivity extends AppCompatActivity {
         tittle = intent.getStringExtra(Config.BUNDLE_TITTLE);
         getSupportActionBar().setTitle(tittle);
 
-        id = Integer.parseInt(intent.getStringExtra(Config.BUNDLE_ID));
         overview = intent.getStringExtra(Config.BUNDLE_OVERVIEW);
         overview_language = intent.getStringExtra(Config.BUNDLE_OVERVIEW_LANGUAGE);
         release = intent.getStringExtra(Config.BUNDLE_RELEASE_DATE);
@@ -65,8 +64,8 @@ public class DetailActivity extends AppCompatActivity {
         language = intent.getStringExtra(Config.BUNDLE_ORIGINAL_LANGUAGE);
         backdrophImage = intent.getStringExtra(Config.BUNDLE_BACKDROPH_IMAGE);
 
-        Glide.with(this).load(backdrophImage).error(R.drawable.ic_launcher_background).into(ivDetailMovieFavorite);
-        Glide.with(this).load(image).error(R.drawable.ic_launcher_background).into(ivDetailFavorite);
+        Glide.with(this).load(backdrophImage).error(R.drawable.ic_launcher_background).into(ivDetailFavorite);
+        Glide.with(this).load(image).error(R.drawable.ic_launcher_background).into(ivDetailMovieFavorite);
 
         tvDetailReleaseDateFavorite.setText(release);
         tvDetailVoteAverageFavorite.setText(voteAverage);

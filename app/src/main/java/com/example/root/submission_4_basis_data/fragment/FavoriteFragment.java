@@ -43,22 +43,9 @@ public class FavoriteFragment extends Fragment implements LoaderManager.LoaderCa
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getActivity().getSupportLoaderManager().initLoader(ID_FILM_LOADER, null, this);
-
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView(view);
         FavoriteModels = new ArrayList<>();
         initAdapter(FavoriteModels);
-        LinearLayoutManager layoutManager  = new LinearLayoutManager(getActivity());
-        layoutManager.setReverseLayout(true);
-        rv.setLayoutManager(layoutManager);
-
-
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-
 
     }
 
@@ -66,6 +53,7 @@ public class FavoriteFragment extends Fragment implements LoaderManager.LoaderCa
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
+        initView(view);
         return view;
 
     }

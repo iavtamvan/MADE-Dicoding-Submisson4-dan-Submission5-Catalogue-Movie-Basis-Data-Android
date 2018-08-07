@@ -42,19 +42,16 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final FavoriteModel favoriteModel = getItem(position);
-        Toast.makeText(context, "" + favoriteModel.getPosterPath(), Toast.LENGTH_SHORT).show();
-
         Glide.with(context).load(favoriteModel.getPosterPath()).error(R.drawable.ic_launcher_background).into(holder.ivItemListPoster);
         holder.tvItemListTittle.setText(favoriteModel.getTitle());
         holder.tvItemListOverview.setText(favoriteModel.getOverview());
         holder.tvItemListDate.setText(favoriteModel.getReleaseDate());
 
-        holder.cvKlikDetail.setOnClickListener(new View.OnClickListener() {
+        holder.btnItemListDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "" + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra(Config.BUNDLE_ID, favoriteModel.getId());
 
@@ -73,6 +70,17 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
             }
         });
 
+        holder.btnItemListShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = holder.tvItemListTittle.getText().toString().trim();
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.SUBJEK));
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                context.startActivity(Intent.createChooser(sharingIntent, context.getString(R.string.SHARE_VIA)));
+            }
+        });
     }
 
     private FavoriteModel getItem(int position) {

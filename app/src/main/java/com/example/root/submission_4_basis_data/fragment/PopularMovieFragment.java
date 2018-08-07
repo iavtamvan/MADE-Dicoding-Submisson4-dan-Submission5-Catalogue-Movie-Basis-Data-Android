@@ -3,6 +3,7 @@ package com.example.root.submission_4_basis_data.fragment;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -54,7 +55,16 @@ public class PopularMovieFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_popular_movie, container, false);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         initView(view);
+
+
         resultsItems = new ArrayList<>();
         dbHelper = new FavoriteDataHelper(getActivity());
 
@@ -75,8 +85,9 @@ public class PopularMovieFragment extends Fragment {
 
             }
         });
-        getDataPopular();
-        return view;
+        if (savedInstanceState == null){
+            getDataPopular();
+        }
     }
 
     private void getDataPopular() {

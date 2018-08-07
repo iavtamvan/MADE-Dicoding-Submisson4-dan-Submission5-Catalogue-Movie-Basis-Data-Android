@@ -46,35 +46,17 @@ public class HomeActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     protected void onResume() {
         super.onResume();
-//        getSupportLoaderManager().restartLoader(ID_FILM_LOADER, null, null);
 
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-//        switch (id){
-//            case ID_FILM_LOADER:
-//                Uri filmUri = Config.MoviesEntry.CONTENT_URI;
-//                Log.d(TAG, "onCreateLoader: "+ filmUri.toString());
-//                return new CursorLoader(HomeActivity.this, filmUri, null, null, null, null);
-//            default:
-//                throw new RuntimeException("Loader Not Implemented: " + id);
-//        }
-
         return new CursorLoader(this, Config.MoviesEntry.CONTENT_URI, null, null, null, null);
 
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-//        Toast.makeText(this, "Loader Data " + data, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, "Loader Data " + data, Toast.LENGTH_SHORT).show();
-//        if(data.getCount()>0) {
-//            initAdapter(getMoviesFromCursor(data));
-//        } else {
-//            Toast.makeText(HomeActivity.this, "Tidak Ada Favorite", Toast.LENGTH_LONG).show();
-//        }
-
         cursor = data;
         favoriteAdapter.setListMovie(cursor);
         favoriteAdapter.notifyDataSetChanged();
@@ -83,31 +65,6 @@ public class HomeActivity extends AppCompatActivity implements LoaderManager.Loa
         }
 
     }
-
-
-//    private ArrayList<FavoriteModel> getMoviesFromCursor(Cursor cursor) {
-//        ArrayList<FavoriteModel> items = new ArrayList<>();
-//        Toast.makeText(this, "Model faforite : " + items, Toast.LENGTH_SHORT).show();
-//        if (cursor != null) {
-//            if (cursor.moveToFirst()){
-//                do{
-//                    FavoriteModel FavoriteModel = new FavoriteModel();
-//                    FavoriteModel.setId(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_ID)));
-//                    FavoriteModel.setPosterPath(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_POSTER_PATH)));
-//                    FavoriteModel.setTitle(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_TITTLE)));
-//                    FavoriteModel.setOverview(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_OVERVIEW)));
-//                    FavoriteModel.setReleaseDate(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_RELEASE_DATE)));
-//                    FavoriteModel.setVoteCount(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_VOTE_COUNT)));
-//                    FavoriteModel.setVoteAverage(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_VOTE_AVERAGE)));
-//                    FavoriteModel.setPopularity(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_POPULARITY)));
-//                    FavoriteModel.setOriginalLanguage(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_ORIGINAL_LANGUAGE)));
-//                    FavoriteModel.setBackdropPath(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_BACKDROPH_PATH)));
-//                    items.add(FavoriteModel);
-//                }while(cursor.moveToNext());
-//            }
-//        }
-//        return items;
-//    }
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         favoriteAdapter.setListMovie(null);
