@@ -1,6 +1,8 @@
 package com.example.favoritemovieapps.adapter;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.favoritemovieapps.DetailActivity;
 import com.example.favoritemovieapps.R;
+import com.example.favoritemovieapps.helper.Config;
 import com.example.favoritemovieapps.model.FavoriteModel;
 
 /**
@@ -21,14 +25,14 @@ import com.example.favoritemovieapps.model.FavoriteModel;
  */
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyViewHolder> {
     private Cursor cursor;
-    private Activity activity;
+    private Context context;
 
     public void setListMovie(Cursor listMovie) {
         this.cursor = listMovie;
     }
 
-    public FavoriteAdapter(Activity activity) {
-        this.activity = activity;
+    public FavoriteAdapter(Activity context) {
+        this.context = context;
     }
 
     @Override
@@ -40,9 +44,9 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final FavoriteModel favoriteModel = getItem(position);
-        Toast.makeText(activity, "" + favoriteModel.getPosterPath(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "" + favoriteModel.getPosterPath(), Toast.LENGTH_SHORT).show();
 
-        Glide.with(activity).load(favoriteModel.getPosterPath()).error(R.drawable.ic_launcher_background).into(holder.ivItemListPoster);
+        Glide.with(context).load(favoriteModel.getPosterPath()).error(R.drawable.ic_launcher_background).into(holder.ivItemListPoster);
         holder.tvItemListTittle.setText(favoriteModel.getTitle());
         holder.tvItemListOverview.setText(favoriteModel.getOverview());
         holder.tvItemListDate.setText(favoriteModel.getReleaseDate());
@@ -50,7 +54,22 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
         holder.cvKlikDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, "" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "" + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra(Config.BUNDLE_ID, favoriteModel.getId());
+
+                intent.putExtra(Config.BUNDLE_POSTER_IMAGE, favoriteModel.getPosterPath());
+                intent.putExtra(Config.BUNDLE_TITTLE, favoriteModel.getTitle());
+                intent.putExtra(Config.BUNDLE_OVERVIEW, favoriteModel.getOverview());
+                intent.putExtra(Config.BUNDLE_RELEASE_DATE, favoriteModel.getReleaseDate());
+                intent.putExtra(Config.BUNDLE_VOTE_COUNT, favoriteModel.getVoteCount());
+                intent.putExtra(Config.BUNDLE_VOTE_AVERAGE, favoriteModel.getVoteAverage());
+                intent.putExtra(Config.BUNDLE_POPULARITY, favoriteModel.getPopularity());
+                intent.putExtra(Config.BUNDLE_ORIGINAL_LANGUAGE, favoriteModel.getOriginalLanguage());
+                intent.putExtra(Config.BUNDLE_BACKDROPH_IMAGE, favoriteModel.getBackdropPath());
+
+                context.startActivity(intent);
+                
             }
         });
 
