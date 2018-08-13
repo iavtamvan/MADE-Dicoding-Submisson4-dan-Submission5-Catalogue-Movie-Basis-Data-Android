@@ -14,11 +14,17 @@ public class MovieModel {
 
     @SerializedName("results")
     private ArrayList<ResultsItem> results;
+    @SerializedName("results")
+    private ArrayList<FavoriteModel> results1;
 
     @SerializedName("total_results")
     private int totalResults;
 
     public ArrayList<ResultsItem> getResults() {
         return results;
+    }
+
+    public ArrayList<FavoriteModel> getResultsFavorite() {
+        return results1;
     }
 }

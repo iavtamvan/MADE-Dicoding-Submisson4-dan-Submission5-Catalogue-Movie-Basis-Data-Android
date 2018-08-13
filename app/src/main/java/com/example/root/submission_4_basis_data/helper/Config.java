@@ -1,5 +1,7 @@
 package com.example.root.submission_4_basis_data.helper;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
@@ -51,6 +53,64 @@ public final class Config {
     public static final String NOTIF_TYPE_MESSAGE = "TYPE_MESSAGE";
     public static final String NOTIF_TYPE_REMINDER = "TYPE_REMINDER";
     public static final int NOTIF_ID_REMINDER  = 101;
+
+    public static final String TAG_TASK_MOVIE_LOG = "Movie_Pop";
+
+
+    private final static String PREF_NAME = "reminderMoviePreferences";
+    private final static String KEY_REMINDER_MOVIE_TIME = "reminderTime";
+    private final static String KEY_REMINDER_MOVIE_MESSAGE = "reminderMessage";
+    private final static String KEY_FIELD_UPCOMING_REMINDER = "checkedUpcoming";
+    private final static String KEY_FIELD_DAILY_REMINDER = "checkedDaily";
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
+
+    public Config(Context context) {
+        this.sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        this.editor = sharedPreferences.edit();
+    }
+
+    public void setReminderTime(String time) {
+        editor.putString(KEY_REMINDER_MOVIE_TIME, time);
+        editor.commit();
+    }
+
+    public String getReminderTime() {
+        return sharedPreferences.getString(KEY_REMINDER_MOVIE_TIME, "");
+    }
+
+    public void setReminderMessage(String message) {
+        editor.putString(KEY_REMINDER_MOVIE_MESSAGE, message);
+        editor.commit();
+    }
+
+    public String getReminderMessage() {
+        return sharedPreferences.getString(KEY_REMINDER_MOVIE_MESSAGE, "");
+    }
+
+    public void clear(){
+        editor.clear();
+        editor.commit();
+    }
+
+    public void setUpcomingStatus(Boolean status) {
+        editor.putBoolean(KEY_FIELD_UPCOMING_REMINDER, status);
+        editor.commit();
+    }
+
+    public void setDailytatus(Boolean status) {
+        editor.putBoolean(KEY_FIELD_DAILY_REMINDER, status);
+        editor.commit();
+    }
+
+    public Boolean getUpcomingStatus() {
+        return sharedPreferences.getBoolean(KEY_FIELD_UPCOMING_REMINDER, false);
+    }
+
+    public Boolean getDailyStatus() {
+        return sharedPreferences.getBoolean(KEY_FIELD_DAILY_REMINDER, false);
+    }
 
 
 
