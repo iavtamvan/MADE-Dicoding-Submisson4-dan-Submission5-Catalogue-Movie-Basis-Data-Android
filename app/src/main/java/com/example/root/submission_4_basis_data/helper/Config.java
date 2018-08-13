@@ -47,6 +47,12 @@ public final class Config {
     public static final String BUNDLE_EXTRA_ITEM = "com.example.root.submission_4_basis_data.EXTRA_ITEM";
     public static final String BUNDLE_TOAST_ACTION = "com.example.root.submission_4_basis_data.TOAST_ACTION";
 
+    public static final String NOTIF_EXTRA_MESSAGE = "EXTRA_MESSAGE";
+    public static final String NOTIF_TYPE_MESSAGE = "TYPE_MESSAGE";
+    public static final String NOTIF_TYPE_REMINDER = "TYPE_REMINDER";
+    public static final int NOTIF_ID_REMINDER  = 101;
+
+
 
     public static String getColomnString(Cursor cursor, String colomnName) {
         return cursor.getString(cursor.getColumnIndex(colomnName));
