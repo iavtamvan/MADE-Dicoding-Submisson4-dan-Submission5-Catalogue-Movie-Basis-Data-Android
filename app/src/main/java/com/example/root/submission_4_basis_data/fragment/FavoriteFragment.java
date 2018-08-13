@@ -40,13 +40,30 @@ public class FavoriteFragment extends Fragment implements LoaderManager.LoaderCa
     }
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+//        getActivity().getSupportLoaderManager().initLoader(ID_FILM_LOADER, null, this);
+//        FavoriteModels = new ArrayList<>();
+//        initAdapter(FavoriteModels);
+//        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        if (savedInstanceState == null){
+            getActivity().getSupportLoaderManager().initLoader(ID_FILM_LOADER, null, this);
+            FavoriteModels = new ArrayList<>();
+            initAdapter(FavoriteModels);
+            rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        }
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getActivity().getSupportLoaderManager().initLoader(ID_FILM_LOADER, null, this);
-        FavoriteModels = new ArrayList<>();
-        initAdapter(FavoriteModels);
-        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        if (savedInstanceState!=null){
+            getActivity().getSupportLoaderManager().initLoader(ID_FILM_LOADER, null, this);
+            FavoriteModels = new ArrayList<>();
+            initAdapter(FavoriteModels);
+            rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        }
     }
 
     @Override
@@ -93,7 +110,7 @@ public class FavoriteFragment extends Fragment implements LoaderManager.LoaderCa
         if (cursor != null) {
             if (cursor.moveToFirst()){
                 do{
-                    FavoriteModel FavoriteModel = new FavoriteModel();
+                    FavoriteModel FavoriteModel = new FavoriteModel(cursor);
                     FavoriteModel.setId(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_ID)));
                     FavoriteModel.setPosterPath(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_POSTER_PATH)));
                     FavoriteModel.setTitle(cursor.getString(cursor.getColumnIndex(Config.MoviesEntry.FIELD_TITTLE)));

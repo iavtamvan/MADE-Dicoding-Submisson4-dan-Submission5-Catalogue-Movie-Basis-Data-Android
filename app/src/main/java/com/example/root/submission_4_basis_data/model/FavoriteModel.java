@@ -1,8 +1,13 @@
 package com.example.root.submission_4_basis_data.model;
 
+import android.database.Cursor;
+
+import com.example.root.submission_4_basis_data.helper.Config;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+
+import static android.provider.BaseColumns._ID;
 
 public class FavoriteModel {
 
@@ -48,6 +53,14 @@ public class FavoriteModel {
     @SerializedName("vote_count")
     private String voteCount;
 
+    public FavoriteModel(Cursor cursor) {
+        this.id = Config.getColomnString(cursor, _ID);
+        this.title = Config.getColomnString(cursor, Config.MoviesEntry.FIELD_TITTLE);
+        this.releaseDate = Config.getColomnString(cursor, Config.MoviesEntry.FIELD_RELEASE_DATE);
+        this.overview = Config.getColomnString(cursor, Config.MoviesEntry.FIELD_OVERVIEW);
+        this.backdropPath = Config.getColomnString(cursor, Config.MoviesEntry.FIELD_BACKDROPH_PATH);
+        this.posterPath = Config.getColomnString(cursor, Config.MoviesEntry.FIELD_POSTER_PATH);
+    }
     public void setOriginalLanguage(String originalLanguage) {
         this.originalLanguage = originalLanguage;
     }

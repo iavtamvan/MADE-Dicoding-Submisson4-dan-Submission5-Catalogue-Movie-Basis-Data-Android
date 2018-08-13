@@ -1,5 +1,6 @@
 package com.example.root.submission_4_basis_data.helper;
 
+import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
@@ -42,6 +43,17 @@ public final class Config {
     public static final String BUNDLE_VOTE_AVERAGE = "bundle_vote_average";
     public static final String BUNDLE_POPULARITY = "bundle_popularity";
     public static final String BUNDLE_ORIGINAL_LANGUAGE = "bundle_language";
+    public static final String BUNDLE_EXT = "movie_exit";
+    public static final String BUNDLE_EXTRA_ITEM = "com.example.root.submission_4_basis_data.EXTRA_ITEM";
+    public static final String BUNDLE_TOAST_ACTION = "com.example.root.submission_4_basis_data.TOAST_ACTION";
 
 
+    public static String getColomnString(Cursor cursor, String colomnName) {
+        return cursor.getString(cursor.getColumnIndex(colomnName));
+    }
+
+
+    public static int getColomnInt(Cursor cursor, String colomnName) {
+        return cursor.getInt(cursor.getColumnIndex(colomnName));
+    }
 }
