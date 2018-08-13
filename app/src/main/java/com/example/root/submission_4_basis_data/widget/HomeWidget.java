@@ -30,8 +30,6 @@ public class HomeWidget extends AppWidgetProvider {
 //        views.setTextViewText(R.id.appwidget_text, widgetText);
 
         views.setRemoteAdapter(R.id.stack_view, intent);
-        views.setEmptyView(R.id.stack_view, R.id.empty_view);
-
         Intent toastIntent = new Intent(context, HomeActivity.class);
 
         toastIntent.setAction(Config.BUNDLE_TOAST_ACTION);
