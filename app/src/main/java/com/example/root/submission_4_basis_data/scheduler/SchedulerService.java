@@ -16,6 +16,7 @@ import com.example.root.submission_4_basis_data.R;
 import com.example.root.submission_4_basis_data.helper.Config;
 import com.example.root.submission_4_basis_data.model.FavoriteModel;
 import com.example.root.submission_4_basis_data.model.MovieModel;
+import com.example.root.submission_4_basis_data.model.ResultsItem;
 import com.example.root.submission_4_basis_data.rest.ApiService;
 import com.example.root.submission_4_basis_data.rest.Client;
 import com.google.android.gms.gcm.GcmNetworkManager;
@@ -33,7 +34,7 @@ public class SchedulerService extends GcmTaskService {
 
     public final String TAG = "MoviePop";
 
-    public ArrayList<FavoriteModel> favoriteModels = new ArrayList<>();
+    public ArrayList<ResultsItem> favoriteModels = new ArrayList<>();
 
     @Override
     public int onRunTask(TaskParams taskParams) {
@@ -50,7 +51,7 @@ public class SchedulerService extends GcmTaskService {
         apiService.getMovieNowPlaying().enqueue(new Callback<MovieModel>() {
             @Override
             public void onResponse(Call<MovieModel> call, Response<MovieModel> response) {
-                final List<FavoriteModel> favoriteModels1 = response.body().getResultsFavorite();
+                final List<ResultsItem> favoriteModels1 = response.body().getResults();
                 favoriteModels.addAll(favoriteModels1);
                 showNotification(getApplicationContext(), favoriteModels);
             }
@@ -62,7 +63,7 @@ public class SchedulerService extends GcmTaskService {
         });
     }
 
-    private void showNotification(Context applicationContext, ArrayList<FavoriteModel> listMovie) {
+    private void showNotification(Context applicationContext, ArrayList<ResultsItem> listMovie) {
         NotificationManager notificationManager = (NotificationManager) applicationContext.getSystemService(Context.NOTIFICATION_SERVICE);
         Uri alaramSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 

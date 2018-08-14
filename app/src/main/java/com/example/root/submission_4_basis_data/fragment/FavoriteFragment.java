@@ -20,8 +20,6 @@ import android.widget.Toast;
 import com.example.root.submission_4_basis_data.R;
 import com.example.root.submission_4_basis_data.adapter.FavoriteAdapter;
 import com.example.root.submission_4_basis_data.helper.Config;
-import com.example.root.submission_4_basis_data.helper.database.FavoriteDataHelper;
-import com.example.root.submission_4_basis_data.model.MovieModel;
 import com.example.root.submission_4_basis_data.model.FavoriteModel;
 
 import java.util.ArrayList;

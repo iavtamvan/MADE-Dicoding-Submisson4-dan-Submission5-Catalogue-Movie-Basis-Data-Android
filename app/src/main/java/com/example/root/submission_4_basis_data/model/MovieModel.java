@@ -3,6 +3,7 @@ package com.example.root.submission_4_basis_data.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MovieModel {
 
@@ -14,17 +15,39 @@ public class MovieModel {
 
     @SerializedName("results")
     private ArrayList<ResultsItem> results;
-    @SerializedName("results")
-    private ArrayList<FavoriteModel> results1;
 
     @SerializedName("total_results")
     private int totalResults;
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
+    }
+
+    public int getTotalPages() {
+        return totalPages;
+    }
+
+    public void setResults(ArrayList<ResultsItem> results) {
+        this.results = results;
+    }
 
     public ArrayList<ResultsItem> getResults() {
         return results;
     }
 
-    public ArrayList<FavoriteModel> getResultsFavorite() {
-        return results1;
+    public void setTotalResults(int totalResults) {
+        this.totalResults = totalResults;
+    }
+
+    public int getTotalResults() {
+        return totalResults;
     }
 }

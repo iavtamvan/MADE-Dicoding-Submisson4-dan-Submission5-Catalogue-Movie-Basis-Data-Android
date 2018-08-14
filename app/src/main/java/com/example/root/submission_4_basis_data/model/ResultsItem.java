@@ -2,7 +2,7 @@ package com.example.root.submission_4_basis_data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ResultsItem {
 
@@ -22,7 +22,7 @@ public class ResultsItem {
     private String title;
 
     @SerializedName("genre_ids")
-    private ArrayList<String> genreIds;
+    private List<Integer> genreIds;
 
     @SerializedName("poster_path")
     private String posterPath;
@@ -56,12 +56,24 @@ public class ResultsItem {
         return overview;
     }
 
+    public void setOriginalLanguage(String originalLanguage) {
+        this.originalLanguage = originalLanguage;
+    }
+
     public String getOriginalLanguage() {
         return originalLanguage;
     }
 
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
+    }
+
     public String getOriginalTitle() {
         return originalTitle;
+    }
+
+    public void setVideo(boolean video) {
+        this.video = video;
     }
 
     public boolean isVideo() {
@@ -76,11 +88,11 @@ public class ResultsItem {
         return title;
     }
 
-    public void setGenreIds(ArrayList<String> genreIds) {
+    public void setGenreIds(List<Integer> genreIds) {
         this.genreIds = genreIds;
     }
 
-    public ArrayList<String> getGenreIds() {
+    public List<Integer> getGenreIds() {
         return genreIds;
     }
 

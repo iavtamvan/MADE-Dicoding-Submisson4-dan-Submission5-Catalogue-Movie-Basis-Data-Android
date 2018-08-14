@@ -70,6 +70,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         holder.btn_item_list_detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(context, "" + listPopuler.get(position).getId(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra(Config.BUNDLE_ID, listPopuler.get(position).getId());
 

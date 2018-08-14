@@ -7,6 +7,22 @@
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
+    <LinearLayout
+        android:id="@+id/div_settings"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Settings"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <com.ogaclejapan.smarttablayout.SmartTabLayout
         android:id="@+id/viewpagertab"
         android:layout_width="match_parent"
@@ -25,10 +41,10 @@
         app:stl_indicatorInterpolation="smart"
         app:stl_indicatorThickness="36dp"
         app:stl_underlineColor="@android:color/transparent"
-        app:stl_underlineThickness="6dp"/>
+        app:stl_underlineThickness="6dp" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </LinearLayout>
