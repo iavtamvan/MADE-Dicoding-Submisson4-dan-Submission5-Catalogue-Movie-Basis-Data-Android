@@ -105,4 +105,8 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="daily_reminder_notification">Daily Reminder Notification</string>
+    <string name="time">Time</string>
+    <string name="click_arrange_your_time">Click arrange your time</string>
+    <string name="popular_moview_notification">Popular Moview Notification</string>
 </resources>

@@ -27,8 +27,14 @@ import com.example.root.submission_4_basis_data.model.ResultsItem;
 import com.example.root.submission_4_basis_data.rest.ApiService;
 import com.example.root.submission_4_basis_data.rest.Client;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -118,7 +124,6 @@ public class PopularMovieFragment extends Fragment {
                     movieAdapter = new MovieAdapter(getActivity(), resultsItems);
                     rvNowPlayingMovie.setLayoutManager(new LinearLayoutManager(getActivity()));
                     rvNowPlayingMovie.setAdapter(movieAdapter);
-
                 }
             }
 
@@ -128,6 +133,38 @@ public class PopularMovieFragment extends Fragment {
             }
         });
     }
+
+//    private void cobaJson() {
+//        ApiService apiService = Client.getInstanceRetrofit();
+//        apiService.getMovieNowPlaying1().enqueue(new Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                if (response.isSuccessful()){
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(response.body().string());
+//
+//                        JSONArray results = jsonObject.getJSONArray("results");
+//
+//                        for (int i = 0; i < results.length(); i++) {
+//                            JSONObject jsonObject1 = results.getJSONObject(i);
+//                            String tittle = jsonObject1.getString("tittle");
+//                            Log.d(TAG, "onResponse: " + tittle);
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
