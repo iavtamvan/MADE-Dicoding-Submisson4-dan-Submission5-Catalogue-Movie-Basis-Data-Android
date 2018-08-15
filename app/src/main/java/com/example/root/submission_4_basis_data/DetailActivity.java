@@ -16,7 +16,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.root.submission_4_basis_data.helper.Config;
@@ -89,6 +88,7 @@ public class DetailActivity extends AppCompatActivity {
         Boolean favorit = sharedPreferences.getBoolean("FAVORITE"+ tittle, false);
         if (favorit){
             btnFavorit.setChecked(true);
+            btnFavorit.setVisibility(View.GONE);
         }
         btnFavorit.setOnCheckStateChangeListener(new ShineButton.OnCheckedChangeListener() {
             @Override

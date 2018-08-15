@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Submission 4</string>
+    <string name="app_name">Submission 5</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -109,4 +109,10 @@
     <string name="time">Time</string>
     <string name="click_arrange_your_time">Click arrange your time</string>
     <string name="popular_moview_notification">Popular Moview Notification</string>
+    <string name="title_activity_home_nav">HomeNavActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
 </resources>

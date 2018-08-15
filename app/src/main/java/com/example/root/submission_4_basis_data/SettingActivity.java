@@ -4,6 +4,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -34,6 +35,7 @@ public class SettingActivity extends AppCompatActivity {
     boolean checkPopular;
     boolean checkDaily;
     private LinearLayout divClickTime;
+    private Button btnKlikAlarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,13 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+        btnKlikAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 
     private void dailyReminderOFF() {
@@ -89,7 +98,7 @@ public class SettingActivity extends AppCompatActivity {
         divClickTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final SimpleDateFormat simpleDateFormat =  new SimpleDateFormat("HH:mm");
+                final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
                 new TimePickerDialog(SettingActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -114,5 +123,6 @@ public class SettingActivity extends AppCompatActivity {
         divTime = findViewById(R.id.div_time);
         tvTime = findViewById(R.id.tv_time);
         divClickTime = findViewById(R.id.div_click_time);
+        btnKlikAlarm = findViewById(R.id.btn_klik_alarm);
     }
 }

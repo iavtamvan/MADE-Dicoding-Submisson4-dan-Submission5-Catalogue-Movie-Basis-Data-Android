@@ -56,7 +56,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra(Config.BUNDLE_ID, listPopuler.get(position).getId());
-
                 intent.putExtra(Config.BUNDLE_POSTER_IMAGE, listPopuler.get(position).getPosterPath());
                 intent.putExtra(Config.BUNDLE_TITTLE, holder.tvJudulFilm.getText().toString().trim());
                 intent.putExtra(Config.BUNDLE_OVERVIEW, listPopuler.get(position).getOverview());
@@ -66,7 +65,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
                 intent.putExtra(Config.BUNDLE_POPULARITY, listPopuler.get(position).getPopularity());
                 intent.putExtra(Config.BUNDLE_ORIGINAL_LANGUAGE, listPopuler.get(position).getOriginalLanguage());
                 intent.putExtra(Config.BUNDLE_BACKDROPH_IMAGE, listPopuler.get(position).getBackdropPath());
-
                 context.startActivity(intent);
             }
         });

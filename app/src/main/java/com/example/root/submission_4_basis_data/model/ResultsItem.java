@@ -1,10 +1,13 @@
 package com.example.root.submission_4_basis_data.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class ResultsItem {
+public class ResultsItem implements Parcelable{
 
     @SerializedName("overview")
     private String overview;
@@ -158,5 +161,28 @@ public class ResultsItem {
 
     public String getVoteCount() {
         return voteCount;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.posterPath);
+        dest.writeByte(this.adult ? (byte) 1 : (byte) 0);
+        dest.writeString(this.overview);
+        dest.writeString(this.releaseDate);
+        dest.writeList(this.genreIds);
+        dest.writeValue(this.id);
+        dest.writeString(this.originalTitle);
+        dest.writeString(this.originalLanguage);
+        dest.writeString(this.title);
+        dest.writeString(this.backdropPath);
+        dest.writeValue(this.popularity);
+        dest.writeValue(this.voteCount);
+        dest.writeValue(this.video);
+        dest.writeValue(this.voteAverage);
     }
 }

@@ -26,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity">
+        <activity android:name=".HomeActivity"
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,6 +37,7 @@
         <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
@@ -72,7 +74,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".SettingActivity" />
     </application>
 
 </manifest>

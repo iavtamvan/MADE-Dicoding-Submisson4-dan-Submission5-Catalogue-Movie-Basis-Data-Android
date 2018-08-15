@@ -45,7 +45,7 @@ public final class Config {
     public static final String BUNDLE_VOTE_AVERAGE = "bundle_vote_average";
     public static final String BUNDLE_POPULARITY = "bundle_popularity";
     public static final String BUNDLE_ORIGINAL_LANGUAGE = "bundle_language";
-    public static final String BUNDLE_EXT = "movie_exit";
+    public static final String BUNDLE_FAVORITE = "1";
     public static final String BUNDLE_EXTRA_ITEM = "com.example.root.submission_4_basis_data.EXTRA_ITEM";
     public static final String BUNDLE_TOAST_ACTION = "com.example.root.submission_4_basis_data.TOAST_ACTION";
 
@@ -60,7 +60,7 @@ public final class Config {
     private final static String PREF_NAME = "reminderMoviePreferences";
     private final static String KEY_REMINDER_MOVIE_TIME = "reminderTime";
     private final static String KEY_REMINDER_MOVIE_MESSAGE = "reminderMessage";
-    private final static String KEY_FIELD_UPCOMING_REMINDER = "checkedUpcoming";
+    private final static String KEY_FIELD_UPCOMING_REMINDER = "checkedPopular";
     private final static String KEY_FIELD_DAILY_REMINDER = "checkedDaily";
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;

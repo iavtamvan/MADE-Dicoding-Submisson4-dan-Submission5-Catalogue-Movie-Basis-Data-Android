@@ -37,13 +37,11 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
 
-    private void showAlarmNotification(Context context, String title, String message, int notifId) {
+    public void showAlarmNotification(Context context, String title, String message, int notifId) {
         NotificationManager notificationManagerCompat = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        // TODO ragu
         Intent intent = new Intent(context, HomeActivity.class);
-        // TODO ---
         PendingIntent pendingIntent = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
             pendingIntent = TaskStackBuilder.create(context).addNextIntent(intent)
@@ -82,9 +80,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         calendar.set(Calendar.SECOND, 0);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, Config.NOTIF_ID_REMINDER, intent, 0);
-        if (alarmManager != null) {
-            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-        }
+//        if (alarmManager != null) {
+            long thirtySecondsFromNow = System.currentTimeMillis() + 30 * 1000;
+//            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, thirtySecondsFromNow, pendingIntent);
+//        }
     }
 
     public void cancelAlarm(Context context) {
